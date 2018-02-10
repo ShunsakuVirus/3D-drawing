@@ -33,7 +33,7 @@ Vector4 Vector4::operator * (Matrix4x4 m) {
 	return Vector4(_x, _y, _z, _w);
 }
 
-Vector3 Vector4::ScreenTransformation(Vector4 v,float width, float height) {
+Vector3 Vector4::screenTransformation(Vector4 v,float width, float height) {
 	Vector3 work;
 	work = Vector3::Vector3(v.x / v.w, v.y / v.w, v.z / v.w);
 	work.x = work.x*width / 2;

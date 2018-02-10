@@ -104,19 +104,19 @@
 		return work;
 	}
 
-	Matrix4x4 Matrix4x4::Camera(Vector3 cameraPos, Vector3 gazingPoint, Vector3 camUp) {
+	Matrix4x4 Matrix4x4::camera(Vector3 cameraPos, Vector3 gazingPoint, Vector3 camUp) {
 		Vector3 sight(gazingPoint - cameraPos);
 		sight = Vector3::normalize(sight);
 
-		Vector3 xAxis(Vector3::Cross(camUp,sight));
+		Vector3 xAxis(Vector3::cross(camUp,sight));
 		xAxis = Vector3::normalize(xAxis);
 
-		Vector3 yAxis(Vector3::Cross(sight,xAxis));
+		Vector3 yAxis(Vector3::cross(sight,xAxis));
 		yAxis= Vector3::normalize(yAxis);
 
-		float dotX = Vector3::Dot(xAxis,cameraPos);
-		float dotY = Vector3::Dot(yAxis, cameraPos);
-		float dotZ = Vector3::Dot(sight, cameraPos);
+		float dotX = Vector3::dot(xAxis, cameraPos);
+		float dotY = Vector3::dot(yAxis, cameraPos);
+		float dotZ = Vector3::dot(sight, cameraPos);
 
 		return Matrix4x4(xAxis.x, yAxis.x, sight.x, 0.0F,
 						xAxis.y, yAxis.y, sight.y, 0.0F,
@@ -124,17 +124,17 @@
 						-dotX, -dotY, -dotZ, 1.0F);
 	}
 
-	Matrix4x4 Matrix4x4::perspective(float viewAngle, float width, float height, float clippingNear, float clippingFar) {
+	Matrix4x4 Matrix4x4::perspective(float fieldOfView, float width, float height, float clippingNear, float clippingFar) {
 		Matrix4x4 work;
 		work.identity();
-		float h = 1 / std::tan(viewAngle/2);
-		float w = h / (width/ height);
+		float h = 1.0F / (float)std::tan(fieldOfView/2.0F);
+		float w = h / ((float)width/ (float)height);
 		float c = clippingFar - clippingNear;
 		work.a = w;
 		work.f = h;
 		work.k = clippingFar / c;
-		work.l = 1;
+		work.l = 1.0F;
 		work.o = -clippingNear * clippingFar / c;
-		work.p = 0;
+		work.p = 0.0F;
 		return work;
 	}

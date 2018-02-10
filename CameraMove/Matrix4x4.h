@@ -31,7 +31,7 @@ struct Matrix4x4 {
 	
 	static Matrix4x4 translate(float x, float y, float z);
 
-	static Matrix4x4 Camera(Vector3 camera, Vector3 gazingPoint, Vector3 camUp);
+	static Matrix4x4 camera(Vector3 cameraPos, Vector3 gazingPoint, Vector3 camUp);
 
-	static Matrix4x4 perspective(float viewAngle, float width, float height, float clippingNear, float clippingFar);
+	static Matrix4x4 perspective(float fieldOfView, float width, float height, float clippingNear, float clippingFar);
 };
