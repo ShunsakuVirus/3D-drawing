@@ -16,5 +16,5 @@ struct Vector2 {
 
 	static float cross(Vector2 v1, Vector2 v2);
 	static float dot(Vector2 v1, Vector2 v2);
-	static Vector2 nornalize(Vector2 v);
+	Vector2 nornalized();
 };

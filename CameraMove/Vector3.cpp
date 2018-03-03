@@ -27,6 +27,11 @@ Vector3 Vector3::operator/ (Vector3 v) {
 	return Vector3(this->x/v.x, this->y/v.y, this->z/v.z);
 }
 
+Vector3 Vector3::operator- () {
+	return Vector3(-this->x, -this->y, -this->z);
+}
+
+
 Vector3 Vector3::operator* (float f) {
 	return Vector3(this->x*f, this->y*f, this->z*f);
 }
@@ -42,14 +47,6 @@ Vector3 Vector3::cross(Vector3 v1, Vector3 v2) {
 }
 float Vector3::dot(Vector3 v1, Vector3 v2) {
 	return v1.x*v2.x + v1.y*v2.y + v1.z*v2.z;
-}
-
-Vector3 Vector3::normalize(Vector3 v) {
-	float s = sqrt(v.x*v.x+v.y*v.y+v.z*v.z);
-	v.x = v.x / s;
-	v.y = v.y / s;
-	v.z = v.z / s;
-	return v;
 }
 
 Vector3 Vector3::normalized() {

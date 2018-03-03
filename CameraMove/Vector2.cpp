@@ -36,7 +36,7 @@ float Vector2::dot(Vector2 v1, Vector2 v2) {
 	return v1.x*v2.x + v1.y*v2.y;
 }
 
-Vector2 Vector2::nornalize(Vector2 v) {
-	float s = sqrt(v.x*v.x + v.y*v.y);
-	return Vector2(v.x / s, v.y / s);
+Vector2 Vector2::nornalized() {
+	float s = (float)sqrt(this->x*this->x+this->y*this->y);
+	return Vector2(this->x / s, this->y / s);
 }

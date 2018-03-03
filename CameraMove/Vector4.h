@@ -13,8 +13,7 @@ struct Vector4 {
 
 	Vector4 operator + (Vector4 v);
 	Vector4 operator - (Vector4 v);
-	Vector4 operator * (Vector4 v);
 	Vector4 operator * (Matrix4x4 m);
 
-	static Vector3 screenTransformation(Vector4 v, float width, float height);
+	static Vector3 screenTransformation(Vector4 v, int width, int height);
 };
